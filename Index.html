@@ -1,7 +1,40 @@
 <!DOCTYPE html>
-<html>
-
-<div>
-    
-</div>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juegos Interactivos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Bienvenido a Juegos Interactivos</h1>
+        <form id="loginForm">
+            <input type="text" id="userName" placeholder="Ingresa tu nombre" required>
+            <button type="submit">Iniciar</button>
+        </form>
+        <div id="userDisplay" style="display:none;">
+            <span id="displayName"></span>
+            <button onclick="showModal()">Ver Marcador</button>
+        </div>
+    </header>
+    <main>
+        <nav>
+            <ul>
+                <li onclick="loadGame('memory')">Memoria</li>
+                <li onclick="loadGame('trivia')">Trivias</li>
+                <li onclick="loadGame('math')">Operaciones</li>
+            </ul>
+        </nav>
+        <section id="gameContainer">
+            <!-- Aquí se cargarán los juegos -->
+        </section>
+    </main>
+    <div id="scoreModal" style="display:none;">
+        <p>Victorias: <span id="wins">0</span></p>
+        <p>Derrotas: <span id="losses">0</span></p>
+        <button onclick="hideModal()">Cerrar</button>
+    </div>
+    <script src="script.js"></script>
+</body>
 </html>
