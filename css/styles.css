@@ -53,13 +53,14 @@ nav ul li {
     margin: 20px auto;
     position: relative;
     max-width: 600px;
+    font-weight: bold;
 }
 .question {
     font-size: 1.5em;
     margin-bottom: 20px;
 }
 .answer {
-    background-color: #56a4f1 !important ;
+    background-color: #6d56f1 !important ;
     border-radius: 10px;
     margin: 5px;
 }
