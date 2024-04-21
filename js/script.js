@@ -36,15 +36,19 @@ function loadGame(gameType) {
     
 }
 
-function mostrarMensaje(titulo, mensaje) {
-    $('#myModal').modal('show');
-    $('#idTituloMensaje').empty();
-    $('#idTituloMensaje').append(titulo);
+function mostrarMensaje(titulo, mensaje, mensajeBoton, funcionalidad) {
+    $('#modalMensaje').modal('show');
+    $('#tituloModal').empty();
+    $('#tituloModal').append(titulo);
 
-    $('#idTextoMesaje').empty();
-    $('#idTextoMesaje').append(mensaje);
+    $('#contenidoModal').empty();
+    $('#contenidoModal').append(mensaje);
 
     $('#idTextoBoton').empty();
-    $('#idTextoBoton').append(mensaje);
+    $('#idTextoBoton').append(mensajeBoton);
+
+    $('#idTextoBoton').on("click", function() {
+        funcionalidad();
+    });
 }
 

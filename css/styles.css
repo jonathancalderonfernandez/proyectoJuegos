@@ -62,6 +62,8 @@ nav ul li {
     margin-bottom: 20px;
 }
 .answer {
+    background-color: #56a4f1 !important ;
+    border-radius: 10px;
     margin: 5px;
 }
 .answer.correct {

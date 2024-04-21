@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Juegos Interactivos</title>
     <link rel="stylesheet" href="css/styles.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.7.9/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -36,27 +38,24 @@
             <div class="container">
                 <div>
                     <div>
-                        <label >Correctas: </label><label id="contadorCorrectas">1</label>
+                        <label >Correctas: </label><label id="contadorCorrectas">0</label>
                     </div>
                     <div>
-                        <label >Incorrectas: </label><label id="contadorIncorrectas">1</label>
+                        <label >Incorrectas: </label><label id="contadorIncorrectas">0</label>
+                    </div>
+                    <div>
+                        <label >Contador en segundos: </label><label id="tiempoLabel"></label>
                     </div>
                 </div>
                 <div id="contenedorPregunta" class="question-container">
-                    <!--
-                    <div class="question">What is the powerhouse of the cell?</div>
-                    <button type="button" class="btn btn-lg btn-block answer ">Wrong Answer 1</button>
-                    <button type="button" class="btn btn-lg btn-block answer ">Wrong Answer 2</button>
-                    <button type="button" class="btn btn-lg btn-block answer ">Wrong Answer 3</button>
-                    <button type="button" class="btn btn-lg btn-block answer ">Mitochondria</button>
-                    -->
+                    
                 </div>
             </div>
         </section>
         <section id="operaciones" style="display:none;">
             <!-- Aquí se cargarán los juegos -->
         </section>
-        <section id="Trivia" style="display:none;">
+        <section id="Memoria" style="display:none;">
             <!-- Aquí se cargarán los juegos -->
         </section>
     </main>
@@ -66,50 +65,27 @@
         <button onclick="hideModal()">Cerrar</button>
     </div>
     <script src="js/script.js"></script>
-    <script src="js/preguntas.js"></script>
-    <script src="js/logicaPreguntas.js"></script>
+    <script src="js/listaPreguntas.js"></script>
+    <script src="js/logicaMemoria.js"></script>
+    <script src="js/logicaOperaciones.js"></script>
+    <script src="js/logicaTrivia.js"></script>
+    
 
-    <!--Modal de mensajes
-    <div id="modalMensajes" class="modal" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="idTituloMensaje"></h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <p id="idTextoMesaje"></p>
-            </div>
-            <div class="modal-footer">
-              <button id="idTextoBoton" type="button" class="btn btn-primary"></button>
-            </div>
-          </div>
-        </div>
-      </div>
--->
-      <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-    Launch demo modal
-  </button>
-  
-  <!-- Modal -->
-  <div class="modal fade" id="modalMensajes" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <!-- Modal -->
+<div class="modal fade" id="modalMensaje" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="idTituloMensaje"></h5>
+          <h5 class="modal-title" id="tituloModal"></h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <div class="modal-body">
-            <p id="idTextoMesaje"></p>
+        <div id="contenidoModal" class="modal-body">
+          
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+          <button id="idTextoBoton" type="button" class="btn btn-primary" data-dismiss="modal">Guardar cambios</button>
         </div>
       </div>
     </div>
