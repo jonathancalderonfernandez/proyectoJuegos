@@ -1,3 +1,8 @@
+var cantidadRespuestasCorrectas = 0;
+var cantidadRespuestasInCorrectas = 0;
+var cantidadVictorias = 0;
+var cantidadDerrotas = 0;
+
 document.getElementById('loginForm').addEventListener('submit', function(event) {
     event.preventDefault();
     var userName = document.getElementById('userName').value;
@@ -23,13 +28,13 @@ function loadGame(gameType) {
     CargarJuegoPreguntas();
     break;
   case 'operaciones':
-    // code block
+    CargarJuegoOperaciones();
     break;
     case 'Trivia':
     // code block
     break;
     default:
-    // code block
+    // nada
     break;
     }
     
@@ -47,8 +52,12 @@ function mostrarMensaje(titulo, mensaje, mensajeBoton, funcionalidad) {
 
     $('#idTextoBoton').empty();
     $('#idTextoBoton').append(mensajeBoton);
-    $('#idTextoBoton').on("click", function() {
-        funcionalidad();
-    });
 }
 
+// Función para desordenar un arreglo
+function desordenarArreglo(arreglo) {
+    for (let i = arreglo.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [arreglo[i], arreglo[j]] = [arreglo[j], arreglo[i]];
+    }
+}

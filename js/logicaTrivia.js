@@ -1,24 +1,28 @@
 var preguntas  = [];
 var preguntaEnCurso = 0;
-var cantidadRespuestasCorrectas = 0;
-var cantidadRespuestasInCorrectas = 0;
-var cantidadVictorias = 0;
-var cantidadDerrotas = 0;
+
 
 function CargarJuegoPreguntas() {
+    cantidadRespuestasCorrectas = 0;
+    cantidadRespuestasInCorrectas = 0;
+    cantidadVictorias = 0;
+    cantidadDerrotas = 0;
     preguntaEnCurso = 0;
     document.getElementById('Preguntas').style.display = 'block';
     desordenarArreglo(listaPreguntas);
-    console.log();
-    PintarPregunta("CargarJuegoPreguntas");
+    $('#contadorCorrectas').empty();
+    $('#contadorIncorrectas').empty();
+    cantidadRespuestasCorrectas = 0;
+    cantidadRespuestasInCorrectas = 0
+    PintarPregunta();
 }
 
 function PintarPregunta() {
-   /* if(preguntaEnCurso > 0){
+    if(preguntaEnCurso > 0){
         clearInterval(tiempoRegresivo);
-    }*/
+    }
     if(preguntaEnCurso < 5) {
-        //contarTiempo();
+        contarTiempo();
         $("#contenedorPregunta").empty();
 
         var elementoDiv = document.createElement("div");
@@ -40,12 +44,14 @@ function marcadorPreguntas() {
         cantidadVictorias = cantidadVictorias +1;
         $("#victoriasLabel").empty();
         $("#victoriasLabel").append(cantidadVictorias);
-        mostrarMensaje("Resultado","Felicidades ganaste", "Cerrar", limpiarJuego);
+        mostrarMensaje("Resultado","Felicidades ganaste", "Cerrar");
+        limpiarJuego();
     } else {
         cantidadDerrotas = cantidadDerrotas +1;
         $("#derrotasLabel").empty();
         $("#derrotasLabel").append(cantidadDerrotas);
-        mostrarMensaje("Resultado", "Has perdido", "Cerrar", limpiarJuego);
+        mostrarMensaje("Resultado", "Has perdido", "Cerrar");
+        limpiarJuego();
     }
 
 }
@@ -71,7 +77,7 @@ function pintarRespuestas(respuestas, respuestaCorrecta) {
 }
 
 function validarRespuesta(esCorrecta) {
-    //clearInterval(tiempoRegresivo);
+    clearInterval(tiempoRegresivo);
     var mensaje = "Incorrecto";
     if(esCorrecta){
         mensaje = "Correcta";
@@ -83,8 +89,8 @@ function validarRespuesta(esCorrecta) {
     }
     
     preguntaEnCurso = preguntaEnCurso + 1;
-    mostrarMensaje("Resultado de la pregunta", mensaje, "Siguiente pregunta", PintarPregunta);
-    
+    mostrarMensaje("Resultado de la pregunta", mensaje, "Siguiente pregunta");
+    PintarPregunta();
 }
 
 function respuestaIncorrecta() {
@@ -93,11 +99,11 @@ function respuestaIncorrecta() {
     $('#contadorIncorrectas').append(cantidadRespuestasInCorrectas);
 }
 
-//var tiempoRegresivo;
-//var timerInicial = 5;
-//var timer = 5;
+var tiempoRegresivo;
+var timerInicial = 15;
+var timer = 15;
 
-/*function contarTiempo(){
+function contarTiempo(){
     timer = timerInicial;
     tiempoRegresivo = setInterval(ActualizarTiempoRestante, 1000);
 }
@@ -112,18 +118,13 @@ function ActualizarTiempoRestante() {
         respuestaIncorrecta();
         preguntaEnCurso = preguntaEnCurso + 1;
         console.log("llamado ActualizarTiempoRestante");
-        mostrarMensaje("Resultado de la pregunta", "Se acabó el tiempo. Perdiste!","Siguiente pregunta", PintarPregunta);
+        mostrarMensaje("Resultado de la pregunta", "Se acabó el tiempo. Perdiste!","Siguiente pregunta");
+        PintarPregunta();
     }
   }
-*/
 
-// Función para desordenar un arreglo
-function desordenarArreglo(arreglo) {
-    for (let i = arreglo.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [arreglo[i], arreglo[j]] = [arreglo[j], arreglo[i]];
-    }
-}
+
+
 
 function limpiarJuego() {
     console.log("llamado ActualizarTiempoRestante");

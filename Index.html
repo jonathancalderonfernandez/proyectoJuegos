@@ -27,7 +27,7 @@
     </header>
     <main>
         <nav id="menuPrincipal" style="display:none;">
-            <ul style="list-style: none; padding: 0; display: flex;">
+            <ul style="list-style: none; padding: 0; display: flex; justify-content: center; width: 100%;">
                 <li onclick="loadGame('Preguntas')">
                     <div>
                         <img src="img/Trivia logo.JPG" alt="Logo de Trivia" style="width: 100px; height: auto;">
@@ -66,8 +66,12 @@
                 </div>
             </div>
         </section>
-        <section id="operaciones" style="display:none;">
-            <!-- Aquí se cargarán los juegos -->
+        <section id="sectionOperaciones" style="display:none;">
+            <div id="contenedorOperacion" class="question-container">
+                <div>
+                    <h3>Juego de </h3><h3 id="indicadorOperacion">0</h3>
+                </div>
+            </div>
         </section>
         <section id="Memoria" style="display:none;">
             <!-- Aquí se cargarán los juegos -->
