@@ -20,18 +20,32 @@
             <button type="submit">Iniciar</button>
         </form>
         <div id="userDisplay" style="display:none;">
-            <span id="displayName" style="margin: 5px;"></span>
-        </div>
-        <div id="userDisplayButon" style="display:none;">  
-            <button style="margin: 5px;" onclick="showModal()">Ver Marcador</button>
+            <span>Usuario: </span><span id="displayName" style="margin: 5px;"></span>
+            <p>Victorias: <span id="victoriasLabel">0</span></p>
+            <p>Derrotas: <span id="derrotasLabel">0</span></p>
         </div>
     </header>
     <main>
         <nav id="menuPrincipal" style="display:none;">
-            <ul>
-                <li onclick="loadGame('Preguntas')">Preguntas</li>
-                <li onclick="loadGame('operaciones')">Operaciones</li>
-                <li onclick="loadGame('Trivia')">Trivia</li>
+            <ul style="list-style: none; padding: 0; display: flex;">
+                <li onclick="loadGame('Preguntas')">
+                    <div>
+                        <img src="img/Trivia logo.JPG" alt="Logo de Trivia" style="width: 100px; height: auto;">
+                        <strong>Trivia</strong>
+                    </div>
+                </li>
+                <li onclick="loadGame('operaciones')">
+                    <div>
+                        <img src="img/Operaciones logo.JPG" alt="Logo de Operaciones" style="width: 100px; height: auto;">
+                        <strong>Operaciones</strong>
+                    </div>
+                </li>
+                <li onclick="loadGame('Memoria')">
+                    <div>
+                        <img src="img/Memoria.JPG" alt="Logo de Memoria" style="width: 100px; height: auto;">
+                        <strong>Memoria</strong>
+                    </div>
+                </li>
             </ul>
         </nav>
         <section id="Preguntas" style="display:none;">
@@ -59,11 +73,7 @@
             <!-- Aquí se cargarán los juegos -->
         </section>
     </main>
-    <div id="scoreModal" style="display:none;">
-        <p>Victorias: <span id="wins">0</span></p>
-        <p>Derrotas: <span id="losses">0</span></p>
-        <button onclick="hideModal()">Cerrar</button>
-    </div>
+    
     <script src="js/script.js"></script>
     <script src="js/listaPreguntas.js"></script>
     <script src="js/logicaMemoria.js"></script>

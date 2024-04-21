@@ -1,9 +1,10 @@
 /*Estilos del menu*/
 
 body, html {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
+    background: radial-gradient(circle, rgb(251, 63, 232) 0%, rgb(70, 225, 252) 100%); 
+    font-family: 'Roboto', sans-serif;
+    color: white;  
+    justify-content: center;
 }
 
 header, main {
@@ -18,23 +19,19 @@ nav ul {
 
 nav ul li {
     display: inline-block;
+    font-weight: bold;
     margin: 10px;
     padding: 10px;
-    background-color: #4CAF50;
-    color: white;
+    background-color: #e5f1e5;
     cursor: pointer;
+    font-family: 'Press Start 2P', cursive; 
+    font-size: 24px;
+    color: #3300ff;
+    text-shadow: 1px 1px 2px rgba(0, 255, 0, 0.8), 0 0 20px rgba(0, 255, 0, 0.5); /* Efecto de brillo */
+    animation: neon 1.5s ease-in-out infinite alternate;
 }
 
-#scoreModal {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: white;
-    padding: 20px;
-    border: 1px solid black;
-    z-index: 1000;
-}
+
 
 #gameContainer {
     margin-top: 20px;

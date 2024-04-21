@@ -3,7 +3,6 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
     var userName = document.getElementById('userName').value;
     document.getElementById('displayName').textContent = userName;
     document.getElementById('userDisplay').style.display = 'block';
-    document.getElementById('userDisplayButon').style.display = 'block';
     document.getElementById('loginForm').style.display = 'none';
     document.getElementById('menuPrincipal').style.display = 'block';
     
@@ -36,6 +35,8 @@ function loadGame(gameType) {
     
 }
 
+
+
 function mostrarMensaje(titulo, mensaje, mensajeBoton, funcionalidad) {
     $('#modalMensaje').modal('show');
     $('#tituloModal').empty();
@@ -46,7 +47,6 @@ function mostrarMensaje(titulo, mensaje, mensajeBoton, funcionalidad) {
 
     $('#idTextoBoton').empty();
     $('#idTextoBoton').append(mensajeBoton);
-
     $('#idTextoBoton').on("click", function() {
         funcionalidad();
     });
