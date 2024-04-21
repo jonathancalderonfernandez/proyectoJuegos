@@ -1,3 +1,5 @@
+/*Estilos del menu*/
+
 body, html {
     margin: 0;
     padding: 0;
@@ -43,4 +45,28 @@ nav ul li {
         display: block;
         margin: 10px auto;
     }
+}
+
+/*Estilos de las preguntas*/
+
+.question-container {
+    background-color: #e9ecef;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px auto;
+    position: relative;
+    max-width: 600px;
+}
+.question {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+.answer {
+    margin: 5px;
+}
+.answer.correct {
+    background-color: #28a745;
+}
+.answer.wrong {
+    background-color: #dc3545;
 }
