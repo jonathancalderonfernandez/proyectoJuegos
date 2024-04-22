@@ -3,8 +3,10 @@ var tipoOperacionTexto;
 
 
 function CargarJuegoOperaciones() {
-    limpiarJuego()
+    limpiarJuego();
     preguntaEnCurso = 0;    
+    document.getElementById('sectionOperaciones').style.display = 'block';
+    document.getElementById('idTipoOperacion').style.display = 'block';
     PintarOperacion();
 }
 

@@ -2,6 +2,7 @@ var cantidadRespuestasCorrectas = 0;
 var cantidadRespuestasInCorrectas = 0;
 var cantidadVictorias = 0;
 var cantidadDerrotas = 0;
+var listaIdInterval = [];
 
 document.getElementById('loginForm').addEventListener('submit', function(event) {
     event.preventDefault();
@@ -45,7 +46,14 @@ function limpiarJuego() {
     document.getElementById('idTipoOperacion').style.display = 'none';
     document.getElementById('Preguntas').style.display = 'none';
     document.getElementById('Memoria').style.display = 'none';
-    clearInterval(tiempoRegresivo);
+    limpiarInterval();
+}
+
+function limpiarInterval() {
+    listaIdInterval.forEach(function(idInterval) {
+        clearInterval(idInterval);
+      });
+      listaIdInterval.length = 0;
 }
 
 function mostrarMensaje(titulo, mensaje, mensajeBoton, funcionalidad) {

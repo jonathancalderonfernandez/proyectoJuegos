@@ -19,7 +19,8 @@ function CargarJuegoPreguntas() {
 
 function PintarPregunta() {
     if(preguntaEnCurso > 0){
-        clearInterval(tiempoRegresivo);
+        limpiarInterval();
+        //clearInterval(tiempoRegresivo);
     }
     if(preguntaEnCurso < 20) {
         contarTiempo();
@@ -77,7 +78,8 @@ function pintarRespuestas(respuestas, respuestaCorrecta) {
 }
 
 function validarRespuesta(esCorrecta) {
-    clearInterval(tiempoRegresivo);
+    limpiarInterval();
+    //clearInterval(tiempoRegresivo);
     var mensaje = "Incorrecto";
     if(esCorrecta){
         mensaje = "Correcta";
@@ -99,13 +101,14 @@ function respuestaIncorrecta() {
     $('#contadorIncorrectas').append(cantidadRespuestasInCorrectas);
 }
 
-var tiempoRegresivo;
 var timerInicial = 15;
 var timer = 15;
 
 function contarTiempo(){
+    console.log("contarTiempo");
     timer = timerInicial;
     tiempoRegresivo = setInterval(ActualizarTiempoRestante, 1000);
+    listaIdInterval.push(tiempoRegresivo);
 }
 
 function ActualizarTiempoRestante() {
@@ -114,19 +117,12 @@ function ActualizarTiempoRestante() {
     contadortexto.innerHTML = timer;
     timer--;
     if(timer < 0){
-        clearInterval(tiempoRegresivo);
+        //clearInterval(tiempoRegresivo);
+        limpiarInterval();
         respuestaIncorrecta();
         preguntaEnCurso = preguntaEnCurso + 1;
-        console.log("llamado ActualizarTiempoRestante");
+        console.log("llamado ActualizarTiempoRestante1");
         mostrarMensaje("Resultado de la pregunta", "Se acabó el tiempo. Perdiste!","Siguiente pregunta");
         PintarPregunta();
     }
   }
-
-
-
-
-function limpiarJuego() {
-    console.log("llamado ActualizarTiempoRestante");
-    document.getElementById('Preguntas').style.display = 'none';
-}
