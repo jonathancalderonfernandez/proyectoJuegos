@@ -1,6 +1,6 @@
 var preguntas  = [];
 var preguntaEnCurso = 0;
-
+var tiempoRegresivo;
 
 function CargarJuegoPreguntas() {
     cantidadRespuestasCorrectas = 0;
@@ -21,7 +21,7 @@ function PintarPregunta() {
     if(preguntaEnCurso > 0){
         clearInterval(tiempoRegresivo);
     }
-    if(preguntaEnCurso < 5) {
+    if(preguntaEnCurso < 20) {
         contarTiempo();
         $("#contenedorPregunta").empty();
 

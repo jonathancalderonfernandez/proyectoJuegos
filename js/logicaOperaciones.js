@@ -1,8 +1,10 @@
 var tipoOperacionTexto;
 
+
+
 function CargarJuegoOperaciones() {
-    preguntaEnCurso = 0;
-    document.getElementById('sectionOperaciones').style.display = 'block';
+    limpiarJuego()
+    preguntaEnCurso = 0;    
     PintarOperacion();
 }
 
@@ -13,26 +15,38 @@ function PintarOperacion() {
     elementoDiv.setAttribute("class", "question");
     elementoDiv.setAttribute("id", "OperacionActual");
 
-    var operacionNumero = ObtenerNumeroAleatorio(2);
+    var operacionNumero = ObtenerNumeroAleatorio(3);
     $('#indicadorOperacion').empty();
     var respuestaCorrecta = 0;
     var operando1 = ObtenerNumeroAleatorio(99);
     var operando2 = ObtenerNumeroAleatorio(99);
-    if(operacionNumero == 1){
-        respuestaCorrecta = parseFloat(operando1) + parseFloat(operando2);
-        tipoOperacionTexto = "+";
-        $('#indicadorOperacion').append("suma");
-    }else {
-        respuestaCorrecta = parseFloat(operando1) - parseFloat(operando2);
-        tipoOperacionTexto = "-";
-        $('#indicadorOperacion').append("resta");
+    var tiopoOperacionMensaje = ""
+    
+    switch(operacionNumero) {
+        case 1:
+            respuestaCorrecta = parseFloat(operando1) + parseFloat(operando2);
+            tipoOperacionTexto = "+";
+            tiopoOperacionMensaje = "Juego de suma";
+        break;
+        case 2:
+            respuestaCorrecta = parseFloat(operando1) - parseFloat(operando2);
+            tipoOperacionTexto = "-";
+            tiopoOperacionMensaje = "Juego de resta";
+        break;
+        case 3:
+            respuestaCorrecta = parseFloat(operando1) * parseFloat(operando2);
+            tipoOperacionTexto = "*";
+            tiopoOperacionMensaje = "Juego de multiplicación";
+        break;
     }
-       
-        
-        
+    $("#idTipoOperacion").empty();
+    $("#idTipoOperacion").append(tiopoOperacionMensaje);
+
     elementoDiv.textContent = operando1 + tipoOperacionTexto + operando2 + " = ?";
     var divOperacion = document.getElementById("contenedorOperacion");
     divOperacion.appendChild(elementoDiv);
+
+    
     pintarRespuestasOperaciones(respuestaCorrecta);
 
 }
@@ -66,14 +80,14 @@ function pintarRespuestasOperaciones(respuestaCorrecta) {
             if(respuestaCorrecta == respuesta) {
                 esCorrecta = true;
             }
-            validarRespuestaOperacion(esCorrecta);
+            validarRespuestaOperacion(esCorrecta, respuestaCorrecta);
         });
       });
 
 }
 
-function validarRespuestaOperacion(esCorrecta) {
-    var mensaje = "Incorrecta";
+function validarRespuestaOperacion(esCorrecta, respuestaCorrecta) {
+    var mensaje = "Incorrecta. La respuesta es: " + respuestaCorrecta;
     if(esCorrecta){
         mensaje = "Correcta";
     }
@@ -84,3 +98,4 @@ function validarRespuestaOperacion(esCorrecta) {
 function ObtenerNumeroAleatorio(numero) {
     return Math.floor(Math.random() * numero) + 1;
 }
+

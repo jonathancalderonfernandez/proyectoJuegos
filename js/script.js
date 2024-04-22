@@ -22,7 +22,7 @@ function hideModal() {
 }
 
 function loadGame(gameType) {
-
+    limpiarJuego();
     switch(gameType) {
   case 'Preguntas':
     CargarJuegoPreguntas();
@@ -40,7 +40,13 @@ function loadGame(gameType) {
     
 }
 
-
+function limpiarJuego() {
+    document.getElementById('sectionOperaciones').style.display = 'none';
+    document.getElementById('idTipoOperacion').style.display = 'none';
+    document.getElementById('Preguntas').style.display = 'none';
+    document.getElementById('Memoria').style.display = 'none';
+    clearInterval(tiempoRegresivo);
+}
 
 function mostrarMensaje(titulo, mensaje, mensajeBoton, funcionalidad) {
     $('#modalMensaje').modal('show');
