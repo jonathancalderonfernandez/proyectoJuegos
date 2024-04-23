@@ -1,7 +1,7 @@
 var tipoOperacionTexto;
 
 
-
+//Encargado de la carga inicial del juego de operaciones.
 function CargarJuegoOperaciones() {
     limpiarJuego();
     preguntaEnCurso = 0;    
@@ -10,6 +10,7 @@ function CargarJuegoOperaciones() {
     PintarOperacion();
 }
 
+//encargado de pintar la operacion a realizar.
 function PintarOperacion() {
     $("#contenedorOperacion").empty();
 
@@ -48,11 +49,10 @@ function PintarOperacion() {
     var divOperacion = document.getElementById("contenedorOperacion");
     divOperacion.appendChild(elementoDiv);
 
-    
     pintarRespuestasOperaciones(respuestaCorrecta);
-
 }
 
+//Se encarga de pintar las respuestas de las operaciones.
 function pintarRespuestasOperaciones(respuestaCorrecta) {
     var respuestaIncorrecta1 = 0;
     var respuestaIncorrecta2 = 0;
@@ -60,7 +60,6 @@ function pintarRespuestasOperaciones(respuestaCorrecta) {
     while(respuestaIncorrecta1 == 0 || respuestaIncorrecta1 == respuestaCorrecta || respuestaIncorrecta1 == respuestaIncorrecta2) {
         respuestaIncorrecta1 = ObtenerNumeroAleatorio(99);
     }
-
     while(respuestaIncorrecta2 == 0 || respuestaIncorrecta2 == respuestaCorrecta || respuestaIncorrecta1 == respuestaIncorrecta2) {
         respuestaIncorrecta2 = ObtenerNumeroAleatorio(99);
     }
@@ -88,6 +87,7 @@ function pintarRespuestasOperaciones(respuestaCorrecta) {
 
 }
 
+//Valida si la respuesta seleccionada es correcta o incorrecta.
 function validarRespuestaOperacion(esCorrecta, respuestaCorrecta) {
     var mensaje = "Incorrecta. La respuesta es: " + respuestaCorrecta;
     if(esCorrecta){
@@ -97,6 +97,7 @@ function validarRespuestaOperacion(esCorrecta, respuestaCorrecta) {
     PintarOperacion();
 }
 
+//Encargada de generar un numero aleatorio para las operaciones matematicas.
 function ObtenerNumeroAleatorio(numero) {
     return Math.floor(Math.random() * numero) + 1;
 }

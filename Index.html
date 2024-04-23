@@ -58,7 +58,7 @@
                         <label >Incorrectas: </label><label id="contadorIncorrectas">0</label>
                     </div>
                     <div>
-                        <label >Contador en segundos: </label><label id="tiempoLabel"></label>
+                        <label >Tiempo restante: </label><label id="tiempoLabel"></label>
                     </div>
                 </div>
                 <div id="contenedorPregunta" class="question-container">
@@ -74,7 +74,24 @@
             </div>
         </section>
         <section id="Memoria" style="display:none;">
-            <!-- Aquí se cargarán los juegos -->
+            <div class="container">
+                <div>
+                    <div>
+                        <label></label>Tiempo restante: <label id="restante"></label>
+                    </div>
+                    <div>
+                        <label ></label><label id="movimientos"></label>
+                    </div>
+                </div>
+                <div>
+                    <input type="button" value="Numérico" id="Tipo" onclick="onoff2();">
+                    <input type="button" value ="Difícil" id="Tamaño" onclick="onoff();">
+                </div>
+                
+                <div id="resultado">
+                    
+                </div>
+            </div>
         </section>
     </main>
     
@@ -85,7 +102,7 @@
     <script src="js/logicaTrivia.js"></script>
     
 
-    <!-- Modal -->
+    <!-- Modal de mensajes-->
 <div class="modal fade" id="modalMensaje" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">

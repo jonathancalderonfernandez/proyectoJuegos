@@ -2,6 +2,7 @@ var preguntas  = [];
 var preguntaEnCurso = 0;
 var tiempoRegresivo;
 
+//Encargado de la carga inicial del juego de preguntas.
 function CargarJuegoPreguntas() {
     cantidadRespuestasCorrectas = 0;
     cantidadRespuestasInCorrectas = 0;
@@ -17,10 +18,11 @@ function CargarJuegoPreguntas() {
     PintarPregunta();
 }
 
+//se encarga de pintar las pregunta en curso.
 function PintarPregunta() {
     if(preguntaEnCurso > 0){
         limpiarInterval();
-        //clearInterval(tiempoRegresivo);
+        
     }
     if(preguntaEnCurso < 20) {
         contarTiempo();
@@ -39,6 +41,7 @@ function PintarPregunta() {
 
 }
 
+//se encarga de validar la condicion para saber si hubo una victoria en el juego o una derrota.
 function marcadorPreguntas() {
     var resultado = (cantidadRespuestasCorrectas * 100) / 20;
     if(resultado > 80) {
@@ -57,6 +60,7 @@ function marcadorPreguntas() {
 
 }
 
+//se encarga de pintar las respuestas de las preguntas
 function pintarRespuestas(respuestas, respuestaCorrecta) {
     desordenarArreglo(respuestas);
     var elementoButton;
@@ -77,9 +81,10 @@ function pintarRespuestas(respuestas, respuestaCorrecta) {
       });
 }
 
+//se encarga de validad si la respuesta seleccionada es la correcta.
 function validarRespuesta(esCorrecta) {
     limpiarInterval();
-    //clearInterval(tiempoRegresivo);
+    
     var mensaje = "Incorrecto";
     if(esCorrecta){
         mensaje = "Correcta";
@@ -95,33 +100,34 @@ function validarRespuesta(esCorrecta) {
     PintarPregunta();
 }
 
+//aumenta el contador de respuestas incorrectas.
 function respuestaIncorrecta() {
     cantidadRespuestasInCorrectas = cantidadRespuestasInCorrectas + 1;
     $('#contadorIncorrectas').empty();
     $('#contadorIncorrectas').append(cantidadRespuestasInCorrectas);
 }
 
-var timerInicial = 15;
-var timer = 15;
+timerInicialPreguntas = 15;
+timerPreguntas = 15;
 
+//encargado de manejar el temporizador del juego de preguntas.
 function contarTiempo(){
-    console.log("contarTiempo");
-    timer = timerInicial;
+    timerPreguntas = timerInicialPreguntas;
     tiempoRegresivo = setInterval(ActualizarTiempoRestante, 1000);
     listaIdInterval.push(tiempoRegresivo);
 }
 
+//actualiza el tiempo restante y muestra mensaje si se acaba el tiempo.
 function ActualizarTiempoRestante() {
     
     var contadortexto = document.getElementById('tiempoLabel');
-    contadortexto.innerHTML = timer;
-    timer--;
-    if(timer < 0){
-        //clearInterval(tiempoRegresivo);
+    contadortexto.innerHTML = timerPreguntas  + " segundos";
+    timerPreguntas--;
+    if(timerPreguntas < 0){
+        
         limpiarInterval();
         respuestaIncorrecta();
         preguntaEnCurso = preguntaEnCurso + 1;
-        console.log("llamado ActualizarTiempoRestante1");
         mostrarMensaje("Resultado de la pregunta", "Se acabó el tiempo. Perdiste!","Siguiente pregunta");
         PintarPregunta();
     }

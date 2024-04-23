@@ -1,3 +1,5 @@
+/*Lista de preguntas que se utilizan en el juego*/
+
 var listaPreguntas = [
       {
         "texto": "¿Cuál es el planeta más grande del sistema solar?",
